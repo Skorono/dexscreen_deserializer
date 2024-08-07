@@ -1,5 +1,6 @@
 import {Wn as logsSchema} from "../chunks/conditional-wrap.js";
 import express from "express";
+import {as, avroFunction} from "../entries/pages_catch-all.js";
 
 const logs_router = express.Router()
 
@@ -15,6 +16,29 @@ const logs_router = express.Router()
  *           type: string
  *           description:
  *           example: ''
+ *         makerScreener:
+ *           type: object
+ *           properties:
+ *              buys:
+ *                type: integer
+ *              sells:
+ *                type: integer
+ *              volumeUsdBuy:
+ *                type: number
+ *              volumeUsdSell:
+ *                type: number
+ *              amountBuy:
+ *                type: string
+ *              amountSell:
+ *                type: string
+ *              balanceAmount:
+ *                type: string
+ *              balancePercentage:
+ *                type: int
+ *              firstSwap:
+ *                type: number
+ *              new:
+ *                type: boolean
  *         buys:
  *           type: integer
  *           description: Count of buys
@@ -50,15 +74,17 @@ const logs_router = express.Router()
 /**
  * @swagger
  * /api/logs:
- *   parameters:
- *     - in: body
- *       name: message
- *       schema:
- *         type: string
  *   post:
  *     summary: Deserialize incoming kafka avro message in json
- *     consumes:
- *         - application/octet-stream
+ *     requestBody:
+ *         required: true
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties: {}
+ *               required: []
+ *               example: '{"url": "http://io.dexscreener.com/"}'
  *     responses:
  *       200:
  *         description: Returns logs json object
@@ -68,10 +94,9 @@ const logs_router = express.Router()
  *               $ref: '#/components/schemas/logsSchema'
  */
 logs_router.route('/logs')
-    .post((req, res) => {
+    .post( async (req, res) => {
         try{
-            let message_bytes = req.body.buffer
-            let message = logsSchema.safeFromBuffer(message_bytes)
+            let message = await avroFunction(req.body.url, logsSchema)
             res.send(message);
 
             console.log("[-] Returned deserialized logs message:", message);

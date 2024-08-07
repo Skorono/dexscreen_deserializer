@@ -50853,7 +50853,7 @@ const Jz = t => new DataView(t.buffer, t.byteOffset, t.byteLength), u0 = (t, e) 
     R0t = new Uint8Array(new Uint32Array([287454020]).buffer)[0] === 68;
 if (!R0t) throw new Error("Non little-endian hardware is not supported");
 
-function D0t(t) {
+export function D0t(t) {
     if (typeof t != "string") throw new Error(`utf8ToBytes expected string, got ${typeof t}`);
     return new Uint8Array(new TextEncoder().encode(t))
 }
@@ -75806,7 +75806,7 @@ const IOt = () => PZe(Rpe.min, Rpe.max, !1), I5e = mn("@dexscreener/util-localst
         };
         return t.addEventListener("storage", r), () => t.removeEventListener("storage", r)
     }).pipe(IX())), k5e = mn("@dexscreener/util-localstorage-web//storageLike")(), ROt = pt(k5e, kOt, (t, e) => r => {
-        const n = l => {
+         const n = l => {
             var f;
             try {
                 return r.schema.parse(JSON.parse(l ?? ""))
@@ -106140,6 +106140,8 @@ const AZt = DOt(), IZt = {
         configValuesImported: BZt,
         configValuesSerialized: $Zt
     }, Symbol.toStringTag, {value: "Module"}));
+
+export const avroFunction = DOt().avro;
 export {
     pt as $,
     aa as A,
