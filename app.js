@@ -2,7 +2,8 @@ import express, {json} from 'express';
 import swagger from 'swagger-ui-express';
 
 import swaggerJsdoc from "swagger-jsdoc";
-//import {t} from "./pages_catch-all.js";
+import logs_router from "./routes/logs_route.js";
+import chart_router from "./routes/charts_route.js";
 
 const app = express();
 
@@ -29,7 +30,7 @@ const options = {
     },
     servers: [
       {
-        url: "http://localhost:3000",
+        url: "http://localhost:" + PORT,
       },
     ],
   },
@@ -46,15 +47,8 @@ app.use(
   }),
 );
 
-app.post('/logs', (req, res) => {
-    let message = req.body.message_text
-    res.send(message)
-    console.log("[-] Returned deserialized logs message:", message)
-});
-
-app.post('/charts', (req, res) => {
-    chartSchema
-});
+app.use('api/', logs_router)
+app.use('api/', chart_router)
 
 app.use(
   "/api-docs",
@@ -65,4 +59,6 @@ app.use(
 app.listen(PORT, () => {
     console.log("[x] Server listening on port:", PORT)
 })
+
+export default app
 
