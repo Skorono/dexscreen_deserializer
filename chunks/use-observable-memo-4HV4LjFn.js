@@ -1,0 +1,1 @@
+import{x as s}from"../entries/pages_catch-all.FuUq_SWM.js";const n=(t,e,r)=>{const[u,o]=s.useState(()=>r);return s.useEffect(()=>{const c=t().subscribe(a=>o(()=>a));return()=>c.unsubscribe()},e),u};export{n as u};

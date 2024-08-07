@@ -40,15 +40,15 @@ const options = {
 const specs = swaggerJsdoc(options);
 
 
-app.use(express.json())
+app.use(express.raw())
 app.use(
   express.urlencoded({
     extended: true,
   }),
 );
 
-app.use('api/', logs_router)
-app.use('api/', chart_router)
+app.use('/api', logs_router)
+app.use('/api', chart_router)
 
 app.use(
   "/api-docs",
@@ -59,6 +59,3 @@ app.use(
 app.listen(PORT, () => {
     console.log("[x] Server listening on port:", PORT)
 })
-
-export default app
-

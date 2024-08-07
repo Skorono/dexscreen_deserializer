@@ -1,4 +1,4 @@
-//import {On as logsSchema} from "../conditional-wrap.js";
+import {Wn as logsSchema} from "../chunks/conditional-wrap.js";
 import express from "express";
 
 const logs_router = express.Router()
@@ -50,22 +50,35 @@ const logs_router = express.Router()
 /**
  * @swagger
  * /api/logs:
+ *   parameters:
+ *     - in: body
+ *       name: message
+ *       schema:
+ *         type: string
  *   post:
- *     summary: Deserializer incoming kafka avro message in json
+ *     summary: Deserialize incoming kafka avro message in json
+ *     consumes:
+ *         - application/octet-stream
  *     responses:
  *       200:
- *         description: Return logs json object
+ *         description: Returns logs json object
  *         content:
  *           application/json:
  *             schema:
  *               $ref: '#/components/schemas/logsSchema'
  */
-logs_router.route('/logs').post((req, res) => {
-    let message_bytes = Buffer.from(req.body.message_text, 'utf-8');
-    //let message = logsSchema.safeFromBuffer(message_bytes); 
-    //res.send(message);
-    
-    //console.log("[-] Returned deserialized logs message:", message);
+logs_router.route('/logs')
+    .post((req, res) => {
+        try{
+            let message_bytes = req.body.buffer
+            let message = logsSchema.safeFromBuffer(message_bytes)
+            res.send(message);
+
+            console.log("[-] Returned deserialized logs message:", message);
+        }
+        catch (e){
+            console.log(e)
+        }
 });
 
 export default logs_router

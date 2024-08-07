@@ -3,7 +3,67 @@ var UOe = (t, e, r) => e in t ? FOe(t, e, {enumerable: !0, configurable: !0, wri
 var Ft = (t, e, r) => (UOe(t, typeof e != "symbol" ? e + "" : e, r), r);
 import {p as Ve, _ as na} from "../chunks/preload-helper-Jimfoxkq.js";
 
+
+var window = {};
+var document = {};
+document.querySelectorAll = () => [];
+window.__DS_ENV = {
+    "DS_WEB_URL": "https:\u002F\u002Fdexscreener.com",
+    "DS_WEB_PAIR_DETAILS_SERVER_HOST": "https:\u002F\u002Fio.dexscreener.com",
+    "DS_WEB_DEX_TRENDING_SERVER_HOST": "https:\u002F\u002Fio.dexscreener.com",
+    "DS_WEB_DEX_SCREENER_WSS_HOST": "wss:\u002F\u002Fio.dexscreener.com",
+    "DS_WEB_PLAUSIBLE_ENABLED": true,
+    "DS_WEB_PLAUSIBLE_DOMAIN": "dexscreener.com",
+    "DS_WEB_PLAUSIBLE_HOST": "https:\u002F\u002Fpl.dexscreener.com",
+    "DS_WEB_WORKER_LOG_APP_NAME": "ds-web",
+    "DS_WEB_WORKER_LOG_ENDPOINT": "",
+    "DS_WEB_WORKER_LOG_STDOUT_ENABLED": false,
+    "DS_WEB_CFW_ADS_HOST": "https:\u002F\u002Fcfw.dexscreener.com",
+    "DS_WEB_SCREENSHOTS_HOST": "https:\u002F\u002Fio.dexscreener.com",
+    "DS_DATA_SERVER_PUBLIC_ORIGIN": "https:\u002F\u002Fdd.dexscreener.com",
+    "DS_WEB_ASSETS_HOST": "https:\u002F\u002Fcdn.dexscreener.com",
+    "DS_WEB_NEWS_SERVER_HOST": "https:\u002F\u002Fio.dexscreener.com",
+    "DS_WEB_HYPE_SERVER_HOST": "https:\u002F\u002Fio.dexscreener.com",
+    "DS_WEB_BALANCE_SERVER_HOST": "https:\u002F\u002Fio.dexscreener.com",
+    "DS_WEB_ADS_PAGES_PUBLIC_ORIGIN": "https:\u002F\u002Fa.dexscreen.com",
+    "DS_WEB_MOONSHOT_SERVER_HOST": "https:\u002F\u002Fms.dexscreener.com",
+    "DS_WEB_MAX_TRENDING_BAR_ADS_AMOUNT": 5,
+    "DS_WEB_SOLANA_WALLET_ADAPTER_NETWORK": "mainnet-beta",
+    "DS_WEB_SOLANA_WALLET_ADAPTER_RPC_URL": "https:\u002F\u002Fjupiter-terminal-rpc.dexscreener.com",
+    "DS_WEB_RECAPTCHA_ENTERPRISE_SCORE_SITE_KEY": "6LfCZxsqAAAAAEyRjvOgA-AXiNRpUBRF-1KSoBY0",
+    "DS_WEB_RECAPTCHA_ENTERPRISE_CHECKBOX_SITE_KEY": "6Lf3YhsqAAAAAD6M_RUYY6XB_RIwVZFqvCdNnX5G",
+    "DS_WEB_FIREBASE_ENABLED": false,
+    "DS_WEB_FIREBASE_API_KEY": "AIzaSyD1Dr_T9bFDX2Vc7BK1s-uEeVxskk_qtvA",
+    "DS_WEB_FIREBASE_APP_ID": "1:592900011890:web:6c46b518a66d5656548feb",
+    "DS_WEB_FIREBASE_AUTH_DOMAIN": "dex-screener-16543.firebaseapp.com",
+    "DS_WEB_FIREBASE_MESSAGING_SENDER_ID": "592900011890",
+    "DS_WEB_FIREBASE_PROJECT_ID": "dex-screener-16543",
+    "DS_WEB_FIREBASE_STORAGE_BUCKET": "dex-screener-16543.appspot.com",
+    "DS_WEB_FIREBASE_ANALYTICS_ENABLED": true,
+    "DS_WEB_FIREBASE_MEASUREMENT_ID": "G-532KFVB4WT",
+    "DS_WEB_UNISWAP_SCREENER_HOST": "https:\u002F\u002Fio.dexscreener.com",
+    "DS_DEX_LOG_AMM_HOST": "https:\u002F\u002Fio.dexscreener.com",
+    "DS_DEX_LOG_BALANCER_HOST": "https:\u002F\u002Fio.dexscreener.com",
+    "DS_DEX_LOG_OSMOSIS_HOST": "https:\u002F\u002Fio.dexscreener.com",
+    "DS_DEX_LOG_UNISWAP_HOST": "https:\u002F\u002Fio.dexscreener.com",
+    "DS_DEX_CHART_AMM_HOST": "https:\u002F\u002Fio.dexscreener.com",
+    "DS_DEX_CHART_BALANCER_HOST": "https:\u002F\u002Fio.dexscreener.com",
+    "DS_DEX_CHART_OSMOSIS_HOST": "https:\u002F\u002Fio.dexscreener.com",
+    "DS_DEX_CHART_UNISWAP_HOST": "https:\u002F\u002Fio.dexscreener.com",
+    "DS_DEX_SCREENER_SEARCH_PUBLIC_ORIGIN": "https:\u002F\u002Fio.dexscreener.com",
+    "DS_DATA_TIME_TO_STALE_IN_MS": 60000,
+    "DS_MOONSHOT_TOKEN_NAME_SIZE_IN_BYTES": 32,
+    "DS_MOONSHOT_TOKEN_SYMBOL_SIZE_IN_BYTES": 10,
+    "DS_MOONSHOT_TOKEN_DESCRIPTION_LENGTH": 2000,
+    "DS_MOONSHOT_DEFAULT_CHAIN_ID": "solana",
+    "DS_MOONSHOT_TOKEN_HEADER_MAX_SIZE_IN_BYTES": 5242880,
+    "DS_MOONSHOT_TOKEN_ICON_MAX_SIZE_IN_BYTES": 2097152,
+    "DS_DEX_API_PUBLIC_ORIGIN": "https:\u002F\u002Fapi.dexscreener.com",
+    "DS_TENOR_API_KEY": "AIzaSyAm2pTjr-XlnTYJkekjC-D348uFWc7OB-E",
+    "DS_MOONSHOT_API_PUBLIC_ORIGIN": "https:\u002F\u002Fapi.moonshot.cc"
+}
 function jOe(t, e) {
+    
     for (var r = 0; r < e.length; r++) {
         const n = e[r];
         if (typeof n != "string" && !Array.isArray(n)) {

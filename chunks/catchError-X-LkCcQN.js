@@ -1,0 +1,1 @@
+import{al as t,am as b,an as c}from"../entries/pages_catch-all.js";function l(u){return t(function(a,e){var n=null,i=!1,r;n=a.subscribe(b(e,void 0,void 0,function(s){r=c(u(s,l(u)(a))),n?(n.unsubscribe(),n=null,r.subscribe(e)):i=!0})),i&&(n.unsubscribe(),n=null,r.subscribe(e))})}export{l as c};

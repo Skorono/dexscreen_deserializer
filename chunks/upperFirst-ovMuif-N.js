@@ -1,0 +1,1 @@
+import{bc as c,bd as s,be as i,bf as n}from"../entries/pages_catch-all.FuUq_SWM.js";function u(e){return function(r){r=c(r);var a=s(r)?i(r):void 0,t=a?a[0]:r.charAt(0),o=a?n(a,1).join(""):r.slice(1);return t[e]()+o}}var b=u("toUpperCase");export{b as u};
